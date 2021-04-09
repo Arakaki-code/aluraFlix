@@ -1,7 +1,0 @@
-function iniciarDestaque() {
-        for (let i = 4; i < listaAnimes.length; i++) {
-          let indice = parseInt(Math.random() * listaAnimes.length);
-          let lista = listaAnimes;
-          criarDestaque(indice, i);
-        }
-      }
