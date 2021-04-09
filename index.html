@@ -1,0 +1,178 @@
+<html>
+  <head>
+    <title>Imersão Dev - Aula 04</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="reset.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Saira+Condensed&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="container" id="container">
+      <div class="header_background">
+        <div class="header_symbol_alura">
+          <img
+            src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-aluraflix.svg"
+            class="page-logo"
+            alt=""
+          />
+
+          <a href="https://alura.com.br/" target="_blank">
+            <img
+              src="https://www.alura.com.br/assets/img/home/alura-logo.svg"
+              alt=""
+              class="alura-logo"
+            />
+          </a>
+        </div>
+
+        <h1 class="page-title">
+          <a href="https://fontmeme.com/netflix-font/"
+            ><img
+              src="https://fontmeme.com/permalink/210405/1772969e76da5858378744d8f76adfd8.png"
+              alt="netflix-font"
+              border="0"
+          /></a>
+        </h1>
+
+        <select
+          class="form-select formulario-selecao"
+          id="dropOpcoes"
+          aria-label="Default select example"
+          onchange="filtrar(value)"
+        >
+          <option value="todos" selected>Todos os Animes</option>
+        </select>
+        <button
+          type="button"
+          class="btn position-btn"
+          data-bs-toggle="modal"
+          data-bs-target="#example"
+        >
+          Adicionar novo anime
+        </button>
+      </div>
+
+      <div class="main_background"></div>
+
+      <div class="main">
+        <div class="movie_featured" id="movieFeatured">
+          <div class="title-feature"><span>Populares</span></div>
+          <div class="feature-item ex1" id="featureItemDestaque"></div>
+        </div>
+
+        <div class="movie_general" id="movieGeneral">
+          <div class="title-general"><span>Animes</span></div>
+
+          <div class="general-item" id="generalItem"></div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="example"
+        tabindex="-1"
+        aria-labelledby="exampleM"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="example">Adicionar anime</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"
+                  >Nome do anime</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="Digitar nome do anime"
+                  onblur="receberAnime('nome', event.target.value)"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"
+                  >Endereço da imagem</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="Colar endereço da imagem"
+                  onblur="receberAnime('imagem', event.target.value)"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"
+                  >Iframe do video</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="<iframe></iframe>"
+                  onblur="receberAnime('video', event.target.value)"
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary btn-cancelar"
+                data-bs-dismiss="modal"
+              >
+                Cancelar
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary btn-salvar"
+                onclick="cadastrarAnime()"
+                data-bs-dismiss="modal"
+              >
+                Salvar anime
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content" id="modal"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -------------------------JAVASCRIPT -->
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
